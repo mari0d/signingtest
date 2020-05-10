@@ -1,0 +1,36 @@
+mario@Marios-MBP:~/signingtest$ curl https://api.github.com/repos/mari0d/signingtest/commits/500252a9e3179d58f50d6e6e22440441edb8cf70 -s | jq .commit.verification
+{
+  "verified": true,
+  "reason": "valid",
+  "signature": "-----BEGIN PGP SIGNATURE-----\nComment: GPGTools - https://gpgtools.org\n\niQIzBAABCgAdFiEE3Q7D0IQimr6faqEC+UxKRp2ZV3MFAl6vEfQACgkQ+UxKRp2Z\nV3Op3g//QXbbdCZ39fMWehG/1FrTxJT7yXLGgghpv1qVCjnx40gaT/Qq7hgWvBap\nl6niGpVT6kqjZa4tDtP0NuLJICbEzRsaFZMeAuiRH8sMGxivdWlYs+qbSZguD82K\nEn8GVMVPcpweXwoH4S0Ewirn7yarwyNPe1uorIqahvFVPbRaivs28Pgh1K2hnMeM\ni8JQ/duS4fUgeiJmi4ydSmeqBACeANyvbJh6+OmrD9O5sbraGf2666pkOFoAA2j8\nZ8tIvLfeuLS4t4vJpWyUUfb4fUCYMHgkkk/fM+1vJiVoMV/8Fw1g4uPsiYqmtMCN\nxgcPShGDnLgtR10wVA2REkXndoQPbMm3yUo85yhzpexkd1K6GygfuNOcEQB8AKfO\nntcxCP57qIdhz/LB8wd1j5/nJHFzEuTX36OFuHP/0Ui6omJAMZnIIDgmkXGa5GST\ndiGFIdi754H/Lb0gJob83+uzG+ULcu5ZB+DTXlHZHmVR33h+Y97ln+RdbCvVUy5I\nQs9mfeKECMaHa8h2pHuEIfA2fSi0UPfE4niQj13rYHDCMH5lp+LxeGXzg12qY1li\n9GSJCTUWcd6PoxLvs84xtx9KnePdcQtXva6ava2T6wKTdOjztcJsR3rxy7uFg3kS\n+q3D1CsVTw0Hsaq3jaa+F8iNN957J60Hxgoep8YetpfjH1MxBGQ=\n=lAyR\n-----END PGP SIGNATURE-----",
+  "payload": "tree 5d3dc6c9b583bdf6f21057a55a2e1ac11ff194cc\nparent d83997903aac80c3bb15289a55c095d6732c755e\nauthor Mario R. De Tore <8285243+mari0d@users.noreply.github.com> 1588531700 +0800\ncommitter Mario R. De Tore <8285243+mari0d@users.noreply.github.com> 1588531700 +0800\n\nfifth time\n"
+}
+mario@Marios-MBP:~/signingtest$ cat signature.txt 
+-----BEGIN PGP SIGNATURE-----
+Comment: GPGTools - https://gpgtools.org
+
+iQIzBAABCgAdFiEE3Q7D0IQimr6faqEC+UxKRp2ZV3MFAl6vEfQACgkQ+UxKRp2Z
+V3Op3g//QXbbdCZ39fMWehG/1FrTxJT7yXLGgghpv1qVCjnx40gaT/Qq7hgWvBap
+l6niGpVT6kqjZa4tDtP0NuLJICbEzRsaFZMeAuiRH8sMGxivdWlYs+qbSZguD82K
+En8GVMVPcpweXwoH4S0Ewirn7yarwyNPe1uorIqahvFVPbRaivs28Pgh1K2hnMeM
+i8JQ/duS4fUgeiJmi4ydSmeqBACeANyvbJh6+OmrD9O5sbraGf2666pkOFoAA2j8
+Z8tIvLfeuLS4t4vJpWyUUfb4fUCYMHgkkk/fM+1vJiVoMV/8Fw1g4uPsiYqmtMCN
+xgcPShGDnLgtR10wVA2REkXndoQPbMm3yUo85yhzpexkd1K6GygfuNOcEQB8AKfO
+ntcxCP57qIdhz/LB8wd1j5/nJHFzEuTX36OFuHP/0Ui6omJAMZnIIDgmkXGa5GST
+diGFIdi754H/Lb0gJob83+uzG+ULcu5ZB+DTXlHZHmVR33h+Y97ln+RdbCvVUy5I
+Qs9mfeKECMaHa8h2pHuEIfA2fSi0UPfE4niQj13rYHDCMH5lp+LxeGXzg12qY1li
+9GSJCTUWcd6PoxLvs84xtx9KnePdcQtXva6ava2T6wKTdOjztcJsR3rxy7uFg3kS
++q3D1CsVTw0Hsaq3jaa+F8iNN957J60Hxgoep8YetpfjH1MxBGQ=
+=lAyR
+-----END PGP SIGNATURE-----
+mario@Marios-MBP:~/signingtest$ cat payload.txt 
+tree 5d3dc6c9b583bdf6f21057a55a2e1ac11ff194cc
+parent d83997903aac80c3bb15289a55c095d6732c755e
+author Mario R. De Tore <8285243+mari0d@users.noreply.github.com> 1588531700 +0800
+committer Mario R. De Tore <8285243+mari0d@users.noreply.github.com> 1588531700 +0800
+
+fifth time
+mario@Marios-MBP:~/signingtest$ gpg --verify signature.txt payload.txt 
+gpg: Signature made Mon May  4 02:48:20 2020 +08
+gpg:                using RSA key DD0EC3D084229ABE9F6AA102F94C4A469D995773
+gpg: Good signature from "Mario R. De Tore <8285243+mari0d@users.noreply.github.com>" [ultimate]
